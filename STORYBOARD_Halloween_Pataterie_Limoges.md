@@ -1,6 +1,6 @@
 # « MÊME LES SUPER-HÉROS ONT FAIM »
 ### Halloween à La Pataterie de Limoges — Storyboard & plan de production
-Format maître : **9:16 vertical (1080×1920)**, 24 i/s · Durée cible : **~40 s** · Déclinaison 16:9 prévue
+Format retenu : **Instagram Reel 9:16 portrait (1080×1920)**, 30 i/s · Durée cible : **~40 s** · Voir §7 pour le choix du format et les zones visibles
 
 ---
 
@@ -9,7 +9,8 @@ Format maître : **9:16 vertical (1080×1920)**, 24 i/s · Durée cible : **~40 
 1. **Je ne peux pas générer la vidéo moi-même** dans cet environnement (aucun modèle vidéo n'y est disponible). Ce document contient donc le storyboard complet + des prompts plan par plan pour Veo 3 / Kling 2.x / Runway Gen-4 / Sora, ainsi que le montage, le son et les voix.
 2. **Ce qui est déjà prêt dans le dépôt :**
    - `references/photos/` : vos 15 photos, renommées par usage (R = lieu, P = plat, L = logo).
-   - `references/plates_9x16/` : 7 plaques déjà **corrigées de l'effet fisheye** et **recadrées en 9:16**, à donner comme image de départ (*start frame*) aux outils vidéo.
+   - `references/plates_9x16/` : 7 plaques en 1080×1920, déjà **corrigées de l'effet fisheye** et **recadrées en 9:16**, à donner comme image de départ (*start frame*) aux outils vidéo. Elles sont vérifiées contre les zones masquées d'Instagram.
+   - `references/instagram/gabarit_zones_reels_1080x1920.png` : gabarit transparent à poser en calque au-dessus du montage (voir §7).
 3. **Ma recommandation n°1 pour un rendu « on y croit » : la méthode hybride.** Vos photos sont prises au fisheye avec un vignettage fort. C'est très bien comme référence, mais limité comme décor animé. Une heure de tournage à l'iPhone (4K, vertical, mode Cinématique) dans le restaurant au crépuscule, sans personne dedans, vous donnerait de **vrais plans en mouvement**. On n'insère alors le héros par IA qu'à ces endroits-là. Le décor et les plats restent 100 % réels, et l'IA ne gère que le personnage. C'est ce qui sépare une pub crédible d'une « vidéo IA ».
 4. **Règle d'or pour la nourriture :** on ne génère jamais un plat. Les plats viennent **uniquement** de vos photos P01–P03, animées en parallaxe ou en léger travelling, ou mieux, filmés en vrai. Le héros n'est jamais généré en train de toucher la nourriture en gros plan (c'est là que l'IA déforme mains et aliments).
 5. **Règle d'or pour les dialogues :** le casque est **fermé pendant toutes les répliques**. La voix passe par un léger filtre « casque ». Résultat : il n'y a aucun problème de synchronisation labiale, qui est le défaut IA le plus visible. Le visage n'apparaît qu'une fois, de dos ou de trois-quarts arrière, au moment où il mange.
@@ -291,14 +292,58 @@ Night exterior of the restaurant facade from the start frame, illuminated sign, 
 - **Rythme :** coupes rapides en Séq. 1 (2 s/plan), puis 3–4 s en Séq. 2–3, avec **1 s de silence** après « bonnes odeurs » et après « sauver le monde ? ». Les rires viennent de ces silences.
 - **Étalonnage :** extérieurs en bleu nuit froid, intérieurs en ambre/cuivre chaud. On garde le rouge de l'armure saturé mais pas fluo. On applique le même LUT sur les plans IA et sur les vraies photos, pour qu'ils se fondent.
 - **Correction fisheye :** les plaques fournies sont déjà corrigées. Pour d'autres photos, utiliser *Lens correction* dans Lightroom ou DaVinci.
-- **Sous-titres :** police sans-serif grasse, blanc avec ombre, dans le tiers central. On évite les 20 % du bas et les 15 % de droite, qui sont recouverts par l'interface TikTok/Instagram.
+- **Sous-titres :** police sans-serif grasse, blanc avec ombre, dans le tiers central. Ils restent dans la zone sûre définie au §7.
 
-## 7. Déclinaison 16:9 (YouTube)
+## 7. Format Instagram : pourquoi le portrait 9:16
 
-Tous les plans sont composés avec le sujet **dans le tiers central**. Pour le 16:9 :
-- reprendre les photos d'origine non recadrées (elles sont en 4:3), corrigées du fisheye ;
-- refaire générer P02, P04, P10 et P14 en 16:9 avec le même prompt, pour profiter de la largeur de la façade et de la salle ;
-- garder les inserts nourriture en 9:16 dans un cadre flouté, ou les recadrer en 16:9 (P01–P03 sont en 2:3, ce qui donne un recadrage serré).
+**Choix : Reel vertical 9:16, 1080×1920.** Le paysage est écarté pour trois raisons :
+- **Visibilité :** sur Instagram, une vidéo en paysage s'affiche en petit bandeau au milieu de l'écran (environ 30 % de la surface). En 9:16, la vidéo occupe **tout l'écran** du téléphone. Le héros, les plats et le décor y sont deux à trois fois plus grands.
+- **Diffusion :** les Reels sont le format qu'Instagram met le plus en avant (onglet Reels, Explorer, fil). Le même fichier sert aussi pour les Stories et TikTok sans retouche.
+- **Mise en valeur :** la plupart des éléments à montrer sont naturellement verticaux. C'est le cas du héros debout, de l'enseigne en hauteur, des portes vertes, de la charpente et des suspensions. Les photos des plats (P01–P03) sont déjà en portrait.
+Seuls la façade et la longue salle sont plus larges que hauts. Ils sont traités en **contre-plongée** et en **profondeur de champ** (lignes de fuite du carrelage), ce qui les rend spectaculaires en vertical. La vidéo n'y perd rien.
+
+### Zones visibles (gabarit `references/instagram/gabarit_zones_reels_1080x1920.png`)
+
+| Zone | Pixels (sur 1080×1920) | Règle |
+|---|---|---|
+| Haut masqué (rouge) | y 0 → 220 | Ni texte, ni enseigne, ni visage : nom du compte et bouton « Reels » |
+| Bas masqué (rouge) | y 1500 → 1920 | Ni sous-titre, ni logo : légende, musique, boutons |
+| Droite masquée (rouge) | x 940 → 1080 | Pas de texte : icônes J'aime, Commenter, Partager |
+| **Cadre 4:5** (bleu) | y 285 → 1635 | Aperçu dans le fil d'actualité : **l'action principale doit tenir ici** |
+| **Cadre 3:4** (jaune) | y 240 → 1680 | Vignette sur la grille du profil : **la couverture doit tenir ici** |
+
+**Règle de composition pour tous les plans :** le sujet (visière, assiette, enseigne) est dans le **rectangle central x 60–940 / y 300–1450**. Les sous-titres sont placés vers **y 1250–1420**. Les deux plaques de façade (R02, R03) ont été recadrées pour que l'enseigne tombe sous la zone masquée du haut. La bande sombre ajoutée en haut sert de marge : à remplir en **ciel de nuit par extension d'image (outpainting)** lors de la génération.
+
+**Ajouter dans chaque prompt du §4 :**
+```
+vertical 9:16 composition, main subject centered in the middle 70% of the frame, empty headroom at the top and bottom 15%, nothing important near the right edge
+```
+
+### Réglages d'export pour Instagram
+
+- **Résolution :** 1080×1920, ratio 9:16. Ne pas exporter en 4K, car Instagram recompresse plus fort.
+- **Images :** 30 i/s (ou 24 i/s si tous les plans IA sont en 24 : ne jamais mélanger les deux).
+- **Codec :** H.264 (MP4), High Profile, environ 12–16 Mb/s VBR, Rec.709. Audio AAC 48 kHz, 320 kb/s, −14 LUFS intégré.
+- **Durée :** environ 40 s, donc sous la limite des Reels. Les 3 premières secondes contiennent déjà l'accroche (visière + « Activité inhabituelle détectée »).
+- **Publication depuis le téléphone,** avec l'option « Importer en haute qualité » activée (Réglages → Utilisation des données et qualité des contenus multimédias).
+
+### Couverture du Reel (image de vignette)
+
+- **Image :** le très gros plan de la visière ambre où se reflète l'assiette (P09), recadré pour tenir dans le cadre 3:4 jaune.
+- **Titre :** « MÊME LES SUPER-HÉROS ONT FAIM » en deux lignes, posé dans le tiers central. Typo grasse blanche, mot « FAIM » en orange citrouille.
+- Exporter la couverture en 1080×1920, et vérifier son aperçu en 3:4 avant publication.
+
+### Texte de publication proposé
+
+> Une activité inhabituelle a été détectée à La Pataterie de Limoges… 🎃🦸 Mission annulée, soirée sauvée. Cet Halloween, vivez votre propre aventure chez nous !
+> #Limoges #LaPataterie #Halloween #RestaurantLimoges #SuperHéros #HalloweenFood
+> *(+ infos de réservation une fois confirmées)*
+
+Activer l'étiquette **« Info IA »** (contenu modifié par IA) au moment de la publication.
+
+### Et si une version paysage devient nécessaire (YouTube, écran en salle)
+
+Tous les plans sont centrés, donc la conversion reste possible. Il faut reprendre les photos d'origine en 4:3, corrigées du fisheye, et régénérer P02, P04, P10 et P14 en 16:9. Les inserts nourriture sont alors posés sur un fond flouté.
 
 ---
 
@@ -311,6 +356,8 @@ Tous les plans sont composés avec le sujet **dans le tiers central**. Pour le 1
 - [ ] Le logo est le fichier officiel, et non une version générée
 - [ ] Toutes les répliques ont le casque fermé, sauf « Non. Ma soirée. », dite de dos
 - [ ] Les sous-titres sont relus et lisibles
+- [ ] Vérification avec le gabarit : rien d'important dans les zones rouges, action principale dans le cadre 4:5
+- [ ] Couverture contrôlée dans le cadre 3:4 de la grille
 - [ ] **Mention « contenu généré/modifié par IA »** activée sur Instagram/TikTok (obligatoire)
 - [ ] Validation par la franchise La Pataterie (charte de marque) avant diffusion
 - [ ] Accord écrit des clients et du personnel visibles
