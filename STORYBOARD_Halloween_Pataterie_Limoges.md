@@ -1,6 +1,6 @@
 # « MÊME LES SUPER-HÉROS ONT FAIM »
 ### Halloween à La Pataterie de Limoges — Storyboard & plan de production
-Format retenu : **Instagram Reel 9:16 portrait (1080×1920)**, 30 i/s · Durée cible : **~40 s** · Voir §7 pour le choix du format et les zones visibles
+Format retenu : **Instagram Reel 9:16 portrait (1080×1920)**, 30 i/s · Durée cible : **42 s** · Voir §7 pour le choix du format et les zones visibles
 
 ---
 
@@ -48,13 +48,15 @@ Format retenu : **Instagram Reel 9:16 portrait (1080×1920)**, 30 i/s · Durée 
 **IA embarquée : ÉCHO.** C'est une voix féminine, calme, pince-sans-rire.
 > ⚠️ Le brief contient « Jarvis » : c'est le nom de l'IA d'Iron Man (Marvel/Disney). Je l'ai remplacé par **ÉCHO** pour éviter tout risque de marque. Dans la même logique, l'armure ne doit pas ressembler à Iron Man : pas de disque lumineux sur la poitrine, pas de masque à fente en « T », pas de lignes de visage dorées façon Iron Man.
 
-**Design de l'armure (identique dans chaque plan) :**
-- Rouge carmin profond, mat satiné, avec des **filets d'or brossé** gravés en chevrons.
-- Plaques segmentées façon armure de chevalier moderne : épaulières larges et arrondies, gantelets articulés.
-- **Casque** lisse et arrondi, avec une **visière horizontale unique couleur ambre** qui s'illumine quand il parle.
-- **Cape courte vert sapin** (le vert de La Pataterie) qui tombe de l'épaule gauche uniquement. C'est un clin d'œil à la marque et un très bon repère de continuité.
-- Emblème sur la poitrine : un **chevron doré abstrait** (aucun logo existant).
-- Taille : 1,85 m, carrure athlétique, sans exagération.
+**Design de l'armure (identique dans chaque plan) : modèle validé = `references/personnage/fiche_personnage_COMMANDEUR.png`**
+- Les **couleurs de La Pataterie** : plaques **vert pomme** et **vert sapin profond**, sur une combinaison **noire** mate. Fins liserés vert vif.
+- Casque lisse en vert sapin, avec deux **yeux en amande blancs lumineux**, un écusson vert vif au-dessus et des disques ronds sur les côtés.
+- **Emblème en forme de pousse/feuille** sur la poitrine, sur la boucle de ceinture et dans le dos. C'est un écho direct à la pousse du logo La Pataterie.
+- Ceinture utilitaire vert vif à pochettes, épaulières et genouillères anguleuses, bottes vertes.
+- Silhouette athlétique, 1,85 m.
+> Choix du vert plutôt que du rouge et or : l'armure prend les couleurs de la marque, s'éloigne totalement d'Iron Man, et la fiche fournie sert telle quelle de référence aux outils IA.
+
+**Détourages prêts** (`references/personnage/`) : `face.png`, `trois_quarts.png`, `dos.png`, `casque.png`, `pouce.png`.
 
 **Personnalité :** il se croit dans un film d'action alors qu'il est dans un restaurant. Il joue au premier degré, sans jamais faire de clin d'œil caméra. L'humour vient d'ÉCHO et des silences.
 
@@ -65,12 +67,12 @@ Format retenu : **Instagram Reel 9:16 portrait (1080×1920)**, 30 i/s · Durée 
 
 **Prompt maître du personnage (à coller en tête de chaque prompt) :**
 ```
-CHARACTER "LE COMMANDEUR": a 1.85m athletic superhero in an original sleek armor of deep crimson satin-matte plates with brushed-gold engraved chevron filigree, rounded knight-like shoulder pauldrons, articulated gauntlets, a smooth rounded helmet with a single horizontal amber glowing visor band (no face slits), an abstract golden chevron emblem on the chest (no glowing chest circle), and a short forest-green cape draped over the LEFT shoulder only. Identical design in every shot.
+CHARACTER "LE COMMANDEUR": a 1.85m athletic superhero in an original armored suit exactly matching the reference sheet: apple-green and deep forest-green angular armor plates over a matte black bodysuit, thin bright-green edge lines, smooth forest-green helmet with two white glowing almond-shaped eye lenses and round side discs, a green leaf/sprout emblem on the chest, belt buckle and back, bright-green utility belt with pouches, green boots. Identical design in every shot.
 ```
 
 **Prompt négatif commun :**
 ```
-no Iron Man, no Marvel, no arc reactor, no T-shaped faceplate, no extra fingers, no deformed hands, no morphing armor, no text, no watermark, no logo distortion, no extra people, no warped food, no fisheye distortion, no cartoon look, no plastic skin
+no Iron Man, no Marvel, no Green Lantern ring or lantern symbol, no red or gold armor, no extra fingers, no deformed hands, no morphing armor, no text, no watermark, no logo distortion, no extra people, no warped food, no fisheye distortion, no cartoon look, no plastic skin
 ```
 
 ---
@@ -82,9 +84,9 @@ Timeline totale ≈ **40 s**. Le brief autorise un léger dépassement si c'est 
 ### SÉQUENCE 1 — UNE MISSION INATTENDUE (0:00 – 0:06)
 
 **P01 — L'accroche · 0:00–0:02 (2 s)**
-- **Cadrage :** très gros plan sur la visière ambre qui s'allume dans le noir. Reflet de lumières oranges dans la visière.
+- **Cadrage :** très gros plan sur le casque vert dans le noir : les deux yeux blancs s'allument. Reflet de lumières oranges sur le casque.
 - **Caméra :** fixe, micro-poussée avant.
-- **Action :** la visière s'allume en balayage gauche→droite. Des données HUD défilent en reflet (flou, illisible volontairement).
+- **Action :** les yeux s'allument en fondu, puis s'intensifient. Des données HUD défilent en reflet (flou, illisible volontairement).
 - **Dialogue (ÉCHO, off) :** « Activité inhabituelle détectée dans ce secteur. »
 - **Son :** drone grave, battement de cœur synthétique, « bip » d'allumage.
 - **Réf. :** fiche personnage.
@@ -93,7 +95,7 @@ Timeline totale ≈ **40 s**. Le brief autorise un léger dépassement si c'est 
 **P02 — L'atterrissage · 0:02–0:04 (2 s)**
 - **Cadrage :** plan large, contre-plongée, sur la façade (R03). L'enseigne « LA PATATERIE » est éclairée en haut du cadre. Heure bleue, ciel violet-gris.
 - **Caméra :** caméra basse au ras du bitume, léger tilt-up.
-- **Action :** le héros atterrit genou au sol sur le parking, devant le ponton bois. Un petit souffle soulève 2–3 feuilles mortes, et la cape retombe. **Pas de cratère ni d'explosion** : on reste crédible.
+- **Action :** le héros atterrit genou au sol sur le parking, devant le ponton bois. Un petit souffle soulève 2–3 feuilles mortes. **Pas de cratère ni d'explosion** : on reste crédible.
 - **Son :** whoosh descendant, impact sourd métallique, cliquetis d'armure.
 - **Réf. :** `plates_9x16/R03_facade_parking_9x16.jpg`, passée en nuit (étalonnage bleu + enseigne lumineuse).
 - **Transition :** coupe dans le mouvement quand il se relève.
@@ -101,7 +103,7 @@ Timeline totale ≈ **40 s**. Le brief autorise un léger dépassement si c'est 
 **P03 — La réplique · 0:04–0:06 (2 s)**
 - **Cadrage :** plan taille, 3/4 face, en légère contre-plongée. Le grand « P » lumineux (R02) est en arrière-plan flou.
 - **Caméra :** lent travelling circulaire de 15°.
-- **Action :** il se relève et tourne la tête vers le restaurant. La visière pulse à chaque mot.
+- **Action :** il se relève et tourne la tête vers le restaurant. Les yeux pulsent à chaque mot.
 - **Dialogue (COMMANDEUR) :** « Enfin une mission à ma hauteur. »
 - **Son :** la musique d'action démarre (cuivres + percussions).
 - **Réf. :** `plates_9x16/R02_terrasse_logo_P_9x16.jpg`.
@@ -130,19 +132,19 @@ Timeline totale ≈ **40 s**. Le brief autorise un léger dépassement si c'est 
 **P06 — La « scène de crime » · 0:11–0:13 (2 s)**
 - **Cadrage :** plan large du mur aux portraits anciens couverts de toiles d'araignée (R09/R10). Le héros est de profil, il scanne la pièce.
 - **Caméra :** panoramique lent gauche→droite.
-- **Action :** un fin faisceau ambre balaie les portraits depuis sa visière (effet discret).
+- **Action :** un fin faisceau blanc-vert balaie les portraits depuis ses yeux (effet discret).
 - **Son :** bip de scan, ambiance de salle feutrée (couverts, murmures lointains).
 - **Réf. :** R10 (de préférence en plaque 9:16 corrigée à faire), R09.
 - **Transition :** suivre le faisceau jusqu'au bar.
 
 **P07 — L'interrogatoire · 0:13–0:17 (4 s)**
 - **Cadrage :** plan américain au bar (R07). Il est accoudé au comptoir carrelé vert, avec les fanions Halloween oranges au-dessus et les bouteilles éclairées derrière.
-- **Caméra :** fixe, puis lent push-in sur la visière.
+- **Caméra :** fixe, puis lent push-in sur le casque.
 - **Action :** il se tourne vers la porte de cuisine (hors champ).
 - **Dialogue :**
   - COMMANDEUR : « Attendez… toute cette activité vient de la cuisine ? »
   - ÉCHO : « Concentration anormalement élevée de bonnes odeurs. »
-  - *(silence d'une seconde, la visière clignote une fois)*
+  - *(silence d'une seconde, les yeux clignotent une fois)*
   - COMMANDEUR : « Je prends les commandes. »
 - **Son :** la musique s'arrête sur « odeurs ». Le silence porte le gag. Petit « ding » de cuisine juste après « commandes ».
 - **Réf. :** `plates_9x16/R07_bar_salle_9x16.jpg`.
@@ -159,9 +161,9 @@ Timeline totale ≈ **40 s**. Le brief autorise un léger dépassement si c'est 
 - **Transition :** cut sur le reflet.
 
 **P09 — Le reflet · 0:20–0:22 (2 s)**
-- **Cadrage :** très gros plan sur la visière ambre, où se **reflète l'assiette**.
+- **Cadrage :** très gros plan sur le casque, où se **reflète l'assiette** (sur la surface vert sapin brillante).
 - **Caméra :** fixe.
-- **Action :** la visière passe lentement d'ambre à doré chaud, comme des yeux qui s'écarquillent.
+- **Action :** les yeux blancs s'élargissent lentement, comme des yeux qui s'écarquillent.
 - **Son :** petit son « HUD » qui monte d'une octave.
 - **Réf. :** fiche personnage + P02 incrustée en reflet.
 
@@ -196,7 +198,7 @@ Timeline totale ≈ **40 s**. Le brief autorise un léger dépassement si c'est 
 - **Réf. :** P01, P02, `R08_salle_tarte_escalier_9x16.jpg`, R11.
 
 **P13 — La morale · 0:33–0:36 (3 s)**
-- **Cadrage :** plan moyen. Il est détendu sur la banquette, cape sur le dossier, de 3/4 arrière, avec la gaufre (P03) devant lui.
+- **Cadrage :** plan moyen. Il est détendu sur la banquette, casque posé à côté de lui, de 3/4 arrière, avec la gaufre (P03) devant lui.
 - **Caméra :** lent travelling arrière.
 - **Dialogue (COMMANDEUR, off ou de dos) :** « Pour Halloween, faites-vous peur avec les histoires… pas avec votre faim. »
 - **Son :** la musique monte vers la fin.
@@ -208,28 +210,29 @@ Timeline totale ≈ **40 s**. Le brief autorise un léger dépassement si c'est 
 - La façade de nuit (R03), enseigne allumée, citrouilles au sol. Le casque du héros est posé seul sur une table de terrasse : il est resté dîner.
 - **Texte animé (police lisible, en surimpression, pas générée par IA) :** « Cet Halloween, vivez votre propre aventure à La Pataterie de Limoges. »
 
-**P15 — Carton logo · 0:38–0:40 (2 s)**
-- Fond noir mat, **logo officiel L01 en blanc** (inversé proprement), « Depuis 1996 ».
-- **Infos pratiques :** *uniquement celles que vous me confirmerez* (adresse, réservation, dates). Rien n'est inventé.
+**P15 — Carton réservation · 0:38–0:42 (4 s, allongé pour laisser le temps de lire le numéro)**
+- Fond vert très sombre, **logo officiel L01 en blanc** (inversé proprement), « Depuis 1996 ».
+- **Infos confirmées :** **HALLOWEEN · SAMEDI 31 OCTOBRE** · **Réservez dès maintenant par téléphone : 05 55 38 19 10** (réservations ouvertes depuis le 10 octobre) · La Pataterie · Limoges.
+- Image finale prête : `video/carton_final_reservation_1080x1920.png`.
 - **Son :** accord final, puis ÉCHO en voix off chuchotée : « Mission… délicieuse. » *(optionnel)*
 
 ---
 
 ## 4. Prompts plan par plan (image→vidéo)
 
-> Mode d'emploi : `[CHARACTER]` = prompt maître du §2. Toujours fournir l'**image de départ** (plaque 9:16 + héros incrusté) et la **référence personnage**. Ratio 9:16, 5 s générées pour garder les meilleures 2–4 s. Ajouter le prompt négatif.
+> Mode d'emploi : `[CHARACTER]` = prompt maître du §2. Toujours fournir l'**image de départ** (plaque 9:16 + héros incrusté) et la **référence personnage** (`fiche_personnage_COMMANDEUR.png`). Ratio 9:16, 5 s générées pour garder les meilleures 2–4 s. Ajouter le prompt négatif.
 
 **P01**
 ```
-[CHARACTER] Extreme close-up of the helmet's single horizontal amber visor band lighting up left-to-right in near darkness, faint warm orange bokeh reflections on the curved visor, blurred abstract HUD glints, slow push-in, cinematic anamorphic look, shallow depth of field, 24fps, photorealistic.
+[CHARACTER] Extreme close-up of the forest-green helmet in near darkness, its two white almond-shaped eye lenses fading on and brightening, faint warm orange bokeh reflections on the glossy helmet, blurred abstract HUD glints, slow push-in, cinematic anamorphic look, shallow depth of field, 24fps, photorealistic.
 ```
 **P02**
 ```
-[CHARACTER] Wide low-angle shot at blue hour in front of the real restaurant facade from the start frame (black corrugated cladding, wooden gabled glass entrance, illuminated "LA PATATERIE" sign). The hero lands on one knee on the asphalt parking lot near the wooden deck, small realistic gust lifts a few dry leaves, cape settles. Camera low near ground, slight tilt up. Keep the building, sign and layout exactly as in the start frame. Realistic weight, no explosion, no crater.
+[CHARACTER] Wide low-angle shot at blue hour in front of the real restaurant facade from the start frame (black corrugated cladding, wooden gabled glass entrance, illuminated "LA PATATERIE" sign). The hero lands on one knee on the asphalt parking lot near the wooden deck, small realistic gust lifts a few dry leaves. Camera low near ground, slight tilt up. Keep the building, sign and layout exactly as in the start frame. Realistic weight, no explosion, no crater.
 ```
 **P03**
 ```
-[CHARACTER] Medium shot, slight low angle, hero rises from kneeling and turns his head toward the restaurant; the large white illuminated "P" logo on black cladding softly out of focus behind him, bamboo planters, string lights. Slow 15-degree orbit. Amber visor pulses gently. Dusk, cool ambient vs warm restaurant glow.
+[CHARACTER] Medium shot, slight low angle, hero rises from kneeling and turns his head toward the restaurant; the large white illuminated "P" logo on black cladding softly out of focus behind him, bamboo planters, string lights. Slow 15-degree orbit. White eye lenses pulse gently. Dusk, cool ambient vs warm restaurant glow.
 ```
 **P04**
 ```
@@ -241,11 +244,11 @@ Timeline totale ≈ **40 s**. Le brief autorise un léger dépassement si c'est 
 ```
 **P06**
 ```
-[CHARACTER] Wide shot, hero in profile scanning a dark navy wooden wall covered with antique black-and-white framed portraits draped in fake spider webs, a large woven rattan pendant lamp glowing warm. A thin subtle amber light beam sweeps from his visor across the frames. Slow pan left to right. Moody, warm practical lighting.
+[CHARACTER] Wide shot, hero in profile scanning a dark navy wooden wall covered with antique black-and-white framed portraits draped in fake spider webs, a large woven rattan pendant lamp glowing warm. A thin subtle white-green light beam sweeps from his eye lenses across the frames. Slow pan left to right. Moody, warm practical lighting.
 ```
 **P07**
 ```
-[CHARACTER] Medium-wide "american" shot, hero leaning one forearm on a bar counter clad in green square tiles with a steel top, backlit shelves of bottles, orange Halloween pennant garland on wooden beams, ribbed glass pendant lights. He slowly turns his head toward an off-screen kitchen door. Static camera then slow push-in toward the visor. Hands stay still on the counter.
+[CHARACTER] Medium-wide "american" shot, hero leaning one forearm on a bar counter clad in green square tiles with a steel top, backlit shelves of bottles, orange Halloween pennant garland on wooden beams, ribbed glass pendant lights. He slowly turns his head toward an off-screen kitchen door. Static camera then slow push-in toward the helmet. Hands stay still on the counter.
 ```
 **P08** — *ne pas générer de nourriture* : animer `P02_travers_chips.jpg` avec un mouvement de caméra uniquement.
 ```
@@ -253,7 +256,7 @@ Subtle slow dolly-in on the exact still image, preserve the dish exactly (glazed
 ```
 **P09**
 ```
-[CHARACTER] Extreme close-up of the amber visor; in its curved reflection a plate of glazed ribs with golden potato chips. The visor glow shifts slowly from amber to warm gold. Static, shallow depth of field.
+[CHARACTER] Extreme close-up of the forest-green helmet; on its glossy curved surface a reflection of a plate of glazed ribs with golden potato chips. The white eye lenses slowly widen. Static, shallow depth of field.
 ```
 **P10**
 ```
@@ -265,11 +268,11 @@ Subtle slow dolly-in on the exact still image, preserve the dish exactly (glazed
 ```
 **P13**
 ```
-[CHARACTER, helmet off, seen from behind] Relaxed hero leaning back on the orange banquette, green cape over the backrest, a waffle with whipped cream on the table, warm dining room glow with rattan lamps. Slow dolly-out. Calm, cozy.
+[CHARACTER, helmet off, seen from behind] Relaxed hero leaning back on the orange banquette, helmet resting on the table beside him, a waffle with whipped cream on the table, warm dining room glow with rattan lamps. Slow dolly-out. Calm, cozy.
 ```
 **P14**
 ```
-Night exterior of the restaurant facade from the start frame, illuminated sign, a few real carved pumpkins with warm candle light on the wooden deck, and the hero's crimson helmet with amber visor resting alone on a terrace table. Very slow push-in. Keep building and sign identical.
+Night exterior of the restaurant facade from the start frame, illuminated sign, a few real carved pumpkins with warm candle light on the wooden deck, and the hero's forest-green helmet with white eye lenses resting alone on a terrace table. Very slow push-in. Keep building and sign identical.
 ```
 
 ---
@@ -290,7 +293,7 @@ Night exterior of the restaurant facade from the start frame, illuminated sign, 
 
 - **Outils :** CapCut Desktop ou Premiere/DaVinci.
 - **Rythme :** coupes rapides en Séq. 1 (2 s/plan), puis 3–4 s en Séq. 2–3, avec **1 s de silence** après « bonnes odeurs » et après « sauver le monde ? ». Les rires viennent de ces silences.
-- **Étalonnage :** extérieurs en bleu nuit froid, intérieurs en ambre/cuivre chaud. On garde le rouge de l'armure saturé mais pas fluo. On applique le même LUT sur les plans IA et sur les vraies photos, pour qu'ils se fondent.
+- **Étalonnage :** extérieurs en bleu nuit froid, intérieurs en ambre/cuivre chaud. On garde le vert de l'armure riche mais pas fluo, accordé au vert des portes et de l'auvent. On applique le même LUT sur les plans IA et sur les vraies photos, pour qu'ils se fondent.
 - **Correction fisheye :** les plaques fournies sont déjà corrigées. Pour d'autres photos, utiliser *Lens correction* dans Lightroom ou DaVinci.
 - **Sous-titres :** police sans-serif grasse, blanc avec ombre, dans le tiers central. Ils restent dans la zone sûre définie au §7.
 
@@ -312,7 +315,7 @@ Seuls la façade et la longue salle sont plus larges que hauts. Ils sont traité
 | **Cadre 4:5** (bleu) | y 285 → 1635 | Aperçu dans le fil d'actualité : **l'action principale doit tenir ici** |
 | **Cadre 3:4** (jaune) | y 240 → 1680 | Vignette sur la grille du profil : **la couverture doit tenir ici** |
 
-**Règle de composition pour tous les plans :** le sujet (visière, assiette, enseigne) est dans le **rectangle central x 60–940 / y 300–1450**. Les sous-titres sont placés vers **y 1250–1420**. Les deux plaques de façade (R02, R03) ont été recadrées pour que l'enseigne tombe sous la zone masquée du haut. La bande sombre ajoutée en haut sert de marge : à remplir en **ciel de nuit par extension d'image (outpainting)** lors de la génération.
+**Règle de composition pour tous les plans :** le sujet (casque, assiette, enseigne) est dans le **rectangle central x 60–940 / y 300–1450**. Les sous-titres sont placés vers **y 1250–1420**. Les deux plaques de façade (R02, R03) ont été recadrées pour que l'enseigne tombe sous la zone masquée du haut. La bande sombre ajoutée en haut sert de marge : à remplir en **ciel de nuit par extension d'image (outpainting)** lors de la génération.
 
 **Ajouter dans chaque prompt du §4 :**
 ```
@@ -324,12 +327,12 @@ vertical 9:16 composition, main subject centered in the middle 70% of the frame,
 - **Résolution :** 1080×1920, ratio 9:16. Ne pas exporter en 4K, car Instagram recompresse plus fort.
 - **Images :** 30 i/s (ou 24 i/s si tous les plans IA sont en 24 : ne jamais mélanger les deux).
 - **Codec :** H.264 (MP4), High Profile, environ 12–16 Mb/s VBR, Rec.709. Audio AAC 48 kHz, 320 kb/s, −14 LUFS intégré.
-- **Durée :** environ 40 s, donc sous la limite des Reels. Les 3 premières secondes contiennent déjà l'accroche (visière + « Activité inhabituelle détectée »).
+- **Durée :** 42 s, donc sous la limite des Reels. Les 3 premières secondes contiennent déjà l'accroche (yeux du casque + « Activité inhabituelle détectée »).
 - **Publication depuis le téléphone,** avec l'option « Importer en haute qualité » activée (Réglages → Utilisation des données et qualité des contenus multimédias).
 
 ### Couverture du Reel (image de vignette)
 
-- **Image :** le très gros plan de la visière ambre où se reflète l'assiette (P09), recadré pour tenir dans le cadre 3:4 jaune.
+- **Image :** le très gros plan du casque aux yeux blancs, où se reflète l'assiette (P09), recadré pour tenir dans le cadre 3:4 jaune.
 - **Titre :** « MÊME LES SUPER-HÉROS ONT FAIM » en deux lignes, posé dans le tiers central. Typo grasse blanche, mot « FAIM » en orange citrouille.
 - Exporter la couverture en 1080×1920, et vérifier son aperçu en 3:4 avant publication.
 
@@ -337,7 +340,7 @@ vertical 9:16 composition, main subject centered in the middle 70% of the frame,
 
 > Une activité inhabituelle a été détectée à La Pataterie de Limoges… 🎃🦸 Mission annulée, soirée sauvée. Cet Halloween, vivez votre propre aventure chez nous !
 > #Limoges #LaPataterie #Halloween #RestaurantLimoges #SuperHéros #HalloweenFood
-> *(+ infos de réservation une fois confirmées)*
+> 📅 Halloween, samedi 31 octobre — réservez dès maintenant au **05 55 38 19 10** 📞
 
 Activer l'étiquette **« Info IA »** (contenu modifié par IA) au moment de la publication.
 
@@ -349,7 +352,7 @@ Tous les plans sont centrés, donc la conversion reste possible. Il faut reprend
 
 ## 8. Checklist qualité avant publication
 
-- [ ] L'armure est identique dans tous les plans (cape à **gauche**, visière unique, chevron)
+- [ ] L'armure est identique dans tous les plans (vert/noir, yeux blancs, emblème pousse)
 - [ ] Aucun plan ne montre de mains déformées ni d'objet qui traverse une surface
 - [ ] Les plats sont strictement identiques aux photos P01–P03
 - [ ] La Boucherie, l'affiche Printemps-Été, les prix et les plaques d'immatriculation sont absents
@@ -364,7 +367,7 @@ Tous les plans sont centrés, donc la conversion reste possible. Il faut reprend
 
 ## 9. Ce qu'il me manque de votre part
 
-1. **Dates et horaires** de la période Halloween, et s'il y a une **animation réelle** (l'ardoise du sas mentionne un blind test le jeudi soir : est-il maintenu pendant Halloween ?). Rien ne sera affiché sans confirmation.
-2. **Modalité de réservation** (téléphone, site, lien) et l'adresse exacte à afficher.
+1. ✅ Reçu : Halloween le **samedi 31 octobre**, réservation **par téléphone au 05 55 38 19 10**, ouverte dès le 10 octobre.
+2. Facultatif : une **animation particulière** le 31 au soir ? Sans confirmation, la vidéo n'en annonce aucune.
 3. Le **logo en vectoriel / PNG transparent** (le JPG fourni a un fond blanc).
 4. Idéalement : 1 h de tournage iPhone au crépuscule (liste de plans = P02, P04, P05, P06, P07, P10, P12, P14, pris **sans** le héros).
