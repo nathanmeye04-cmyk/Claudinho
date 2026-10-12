@@ -6,7 +6,7 @@ Tout part de l'image de référence (reference/cerelac_reference.webp) :
     le contenant et le logo restent strictement identiques ;
   - le décor « table de dégustation » est l'affiche elle-même, textes effacés (inpainting OpenCV) ;
   - les céréales qui flottent / tombent sont de vrais flocons détourés de la photo ;
-  - voix off française (synthèse Piper, voix « siwis »), musique originale et bruitages
+  - voix off française (voix neuronale Microsoft « Vivienne », via edge-tts), musique originale et bruitages
     synthétisés ici (numpy), musique baissée automatiquement sous la voix.
 
 Scénario : 0-3 s révélation du pot · 3-6 s gros plan en arc de cercle · 6-10 s travelling sur la
@@ -14,13 +14,12 @@ table de dégustation · 10-15 s plan final, logo et informations de commande.
 
 Usage : python3 cio_miam_cerelac/build_pub.py  ->  cio_miam_cerelac/CIO_MIAM_CERELAC_pub_9x16.mp4
 Dépendances : ffmpeg, numpy, scipy, pillow ; pour régénérer assets/ : rembg, opencv-python-headless ;
-pour régénérer la voix : piper-tts (modèle fr_FR-siwis-medium téléchargé automatiquement).
+pour régénérer la voix : edge-tts (voix neuronale « Vivienne », connexion internet requise).
 """
 import math
 import os
 import subprocess
 import tempfile
-import urllib.request
 from multiprocessing import Pool
 
 import numpy as np
@@ -39,19 +38,20 @@ W, H, FPS, SR, DUR = 1080, 1920, 30, 48000, 15.0
 NF = int(DUR * FPS)
 
 # Informations commerciales (affichées uniquement dans le plan final)
-TEL = "+241 77 14 21 4"
+TEL = "+241 77 14 12 14"
 LIEU = "Ambowé (cimetière)"
 LIVRAISON = ("Livraison disponible", "à partir de 5 pots commandés.")
 
 # Voix off : texte du brief, écrit « comme il se prononce » pour la synthèse vocale
 VOICE_LINES = [
     "Retrouvez le goût de l'enfance, avec la glace Céréla de Si-O Miam !",
-    "Une douceur crémeuse, une touche de céréales... et le plaisir, à chaque cuillère.",
-    "Commandez au plus deux cent quarante et un, soixante-dix-sept, quatorze, vingt et un, quatre !",
-    "Livraison disponible dès cinq pots.",
+    "Une douceur crémeuse, une touche de céréales... et le plaisir, à chaque cuillère !",
+    "Commandez au plus deux cent quarante et un, soixante-dix-sept, quatorze, douze, quatorze !",
+    "Livraison disponible dès cinq pots !",
     "Si-O Miam, des glaces qui font plaisir !",
 ]
-VOICE_START, VOICE_GAP, VOICE_TEMPO = 0.20, 0.12, 1.04
+VOICE_START, VOICE_GAP, VOICE_TEMPO = 0.15, 0.08, 1.0
+VOICE_NAME, VOICE_RATE, VOICE_PITCH = "fr-FR-VivienneMultilingualNeural", "+19%", "+2Hz"
 
 BROWN = (62, 31, 16)
 CHOCO = (78, 40, 20)
@@ -525,14 +525,25 @@ def render_video(path):
 
 
 # ----------------------------------------------------------------------------- voix off
-def piper_model():
-    os.makedirs(CACHE, exist_ok=True)
-    base = "https://huggingface.co/rhasspy/piper-voices/resolve/main/fr/fr_FR/siwis/medium/fr_FR-siwis-medium"
-    model = os.path.join(CACHE, "fr_FR-siwis-medium.onnx")
-    for ext in ("", ".json"):
-        if not os.path.exists(model + ext):
-            urllib.request.urlretrieve(base + ".onnx" + ext, model + ext)
-    return model
+def tts_edge(text, dst):
+    """Voix neuronale Microsoft (edge-tts) : naturelle, expressive, ton publicitaire."""
+    import asyncio
+    import ssl
+
+    import edge_tts
+    import edge_tts.communicate as ec
+
+    ca = "/root/.ccr/ca-bundle.crt"  # proxy de l'environnement cloud, ignoré ailleurs
+    if os.path.exists(ca):
+        ec._SSL_CTX = ssl.create_default_context(cafile=ca)
+    # le service renvoie parfois un flux tronqué : on recommence tant que la durée est anormale
+    for _ in range(4):
+        asyncio.run(edge_tts.Communicate(text, VOICE_NAME, rate=VOICE_RATE, pitch=VOICE_PITCH).save(dst))
+        dur = float(subprocess.check_output(["ffprobe", "-v", "error", "-show_entries", "format=duration",
+                                             "-of", "csv=p=0", dst]))
+        if dur > 0.045 * len(text):
+            return
+    raise RuntimeError(f"voix incomplète pour : {text}")
 
 
 def read_wav(path):
@@ -550,18 +561,18 @@ def build_voice(tmp):
     for i, line in enumerate(VOICE_LINES, 1):
         dst = os.path.join(VOIX, f"phrase_{i}.wav")
         if not os.path.exists(dst):
+            mp3 = os.path.join(tmp, f"raw{i}.mp3")
+            tts_edge(line, mp3)
             raw = os.path.join(tmp, f"raw{i}.wav")
-            subprocess.run(["python3", "-m", "piper", "-m", piper_model(), "-f", raw, "--length-scale", "0.74",
-                            "--sentence-silence", "0"], input=line.encode(), check=True,
-                           stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+            run(["ffmpeg", "-y", "-i", mp3, "-ac", "1", raw])
             sr, x = read_wav(raw)
             nz = np.where(np.abs(x) > 0.01)[0]
             x = x[max(0, nz[0] - int(0.02 * sr)): nz[-1] + int(0.06 * sr)]
             trimmed = os.path.join(tmp, f"trim{i}.wav")
             wavfile.write(trimmed, sr, (x * 32767).astype(np.int16))
             run(["ffmpeg", "-y", "-i", trimmed, "-af",
-                 f"atempo={VOICE_TEMPO},highpass=f=90,equalizer=f=220:t=q:w=1:g=1.5,"
-                 "equalizer=f=3200:t=q:w=1.2:g=2.5,acompressor=threshold=-20dB:ratio=3:attack=4:release=90:makeup=2",
+                 f"atempo={VOICE_TEMPO},highpass=f=80,equalizer=f=180:t=q:w=1:g=1.5,"
+                 "equalizer=f=4500:t=q:w=1.5:g=1.5,acompressor=threshold=-18dB:ratio=2.5:attack=5:release=120:makeup=1.5",
                  "-ar", str(SR), "-ac", "1", dst])
         clips.append(read_wav(dst)[1])
     track = np.zeros(int(DUR * SR), np.float32)

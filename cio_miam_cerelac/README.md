@@ -10,6 +10,6 @@
 | 10 – 15 s | Plan final : logo, CERELAC, « Le goût d'enfance autrement », Commandez maintenant, WhatsApp, localisation, livraison, effet lumineux |
 
 Le pot, le logo et le titre sont **détourés de l'affiche d'origine** (`reference/`). Ils ne sont ni redessinés ni déformés.
-La voix off est une synthèse vocale française (Piper, voix « siwis »). La musique et les bruitages sont originaux et générés par le script.
+La voix off est une voix neuronale française, expressive et au ton publicitaire (Microsoft « Vivienne », via edge-tts). La musique et les bruitages sont originaux et générés par le script.
 
 Pour reconstruire la vidéo : `python3 cio_miam_cerelac/build_pub.py`. Le numéro, le lieu et le texte de livraison se changent en haut du script.
