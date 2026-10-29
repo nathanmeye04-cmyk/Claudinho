@@ -1,0 +1,26 @@
+{
+  "_doc": "Minutage mot par mot (secondes, audio officiel). Texte exact des paroles. Aligné par reconnaissance vocale guidée par le texte, à retoucher à la main si besoin.",
+  "lines": [
+    {"words": [["C'est", 7.30, 7.60], ["A.L.V.A.N", 7.70, 9.40]], "style": "header"},
+    {"words": [["C'est", 12.20, 12.45], ["pour", 12.45, 12.75], ["la", 12.75, 12.95], ["gloire", 12.95, 13.70], ["de", 13.70, 13.95], ["Dieu", 13.95, 15.20]], "style": "header"},
+    {"blank": true},
+    {"words": [["Provoquer", 19.56, 19.96], ["réflexion,", 19.96, 20.40], ["c'est", 20.42, 20.56], ["ça", 20.56, 20.68], ["ma", 20.68, 20.84], ["mission", 20.84, 21.26]]},
+    {"words": [["La", 21.44, 21.58], ["priorité,", 21.58, 22.10], ["c'est", 22.12, 22.30], ["pas", 22.30, 22.40], ["d'être", 22.40, 22.64], ["sapé", 22.64, 23.00], ["en", 23.00, 23.10], ["Christian", 23.10, 23.50, {"strike": "dior"}], ["Dior", 23.50, 23.88, {"strike": "dior"}]]},
+    {"words": [["Impacter", 24.22, 24.50], ["ma", 24.50, 24.72], ["ville", 24.72, 24.90], ["et", 24.90, 25.04], ["puis", 25.04, 25.16], ["les", 25.16, 25.34], ["nations", 25.34, 25.64, {"drop": true}]]},
+    {"blank": true},
+    {"words": [["Le", 25.78, 25.88], ["diable", 25.88, 26.02], ["travaille", 26.02, 26.36], ["tout", 26.36, 26.56], ["le", 26.56, 26.62], ["temps", 26.62, 26.78]]},
+    {"words": [["Pendant", 26.78, 27.02], ["que", 27.02, 27.30], ["le", 27.30, 27.52], ["chrétien", 27.52, 28.02], ["dort", 28.02, 28.42]]},
+    {"blank": true},
+    {"words": [["Impacter", 30.38, 30.78, {"heavy": 1.0}]]},
+    {"words": [["Les", 31.28, 31.38], ["nations,", 31.38, 31.70], ["je", 31.78, 31.94], ["dois", 31.94, 32.10], ["impacter", 32.14, 33.00, {"heavy": 1.3}]]},
+    {"words": [["Impacter", 34.34, 34.74, {"heavy": 1.6}]]}
+  ],
+  "strikes": {"dior": {"t0": 23.90, "t1": 24.12}},
+  "events": {
+    "silence": [16.2, 19.06],
+    "drop_beat": 19.06,
+    "devil": {"t0": 25.80, "low": 28.02, "t1": 30.20},
+    "hits": [[30.38, 1.0], [32.24, 1.3], [34.34, 1.6]],
+    "gloire_light": [13.0, 16.0]
+  }
+}
