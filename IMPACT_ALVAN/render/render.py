@@ -306,6 +306,18 @@ def render_chunk(args):
     return out
 
 
+def frame_count(path):
+    if not os.path.exists(path):
+        return -1
+    r = subprocess.run(['ffprobe', '-v', 'error', '-count_packets', '-select_streams', 'v',
+                        '-show_entries', 'stream=nb_read_packets', '-of', 'csv=p=0', path],
+                       capture_output=True, text=True)
+    try:
+        return int(r.stdout.strip())
+    except ValueError:
+        return -1
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument('--t0', type=float, default=0.0)
@@ -339,8 +351,13 @@ def main():
     jobs = [(i, p, cams[p[0]:p[-1] + 1], os.path.join(CACHE, f'part_{i:03d}.mp4'), a.crf)
             for i, p in enumerate(parts) if p]
     t = time.time()
-    with Pool(n) as pool:
-        outs = pool.map(render_chunk, jobs, chunksize=1)
+    # reprise : les tranches déjà rendues en entier (redémarrage de la machine) sont gardées
+    todo = [j for j in jobs if frame_count(j[3]) != len(j[1])]
+    print(f'{len(jobs) - len(todo)} tranches déjà rendues, {len(todo)} à rendre', flush=True)
+    if todo:
+        with Pool(min(n, len(todo))) as pool:
+            pool.map(render_chunk, todo, chunksize=1)
+    outs = [j[3] for j in jobs]
     lst = os.path.join(CACHE, 'parts.txt')
     with open(lst, 'w') as f:
         f.writelines(f"file '{os.path.abspath(o)}'\n" for o in outs)
