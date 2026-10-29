@@ -1,4 +1,3 @@
 render/cache/
-sorties/*.mp4
-!sorties/*apercu*.mp4
+sorties/
 render/__pycache__/
