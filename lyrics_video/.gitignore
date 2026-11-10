@@ -1,0 +1,6 @@
+clips/
+frames/
+qc/
+audio/mono16k.wav
+*.log
+__pycache__/
